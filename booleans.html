@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Booleans</title>
 </head>
-<p>Booleans</p>
 <body>
+  <p>Booleans</p>
   
   <script>
     console.log(typeof true);
@@ -27,6 +27,28 @@
     if (5) {
       console.log('false');
     }
+
+    if (!0) {
+      console.log('text' / 3);
+    }
+
+    let  a;
+    console.log(a);
+
+    const result = true ? 'truthy' : 'falsy';
+    console.log(result);
+
+    true && console.log('hello');
+
+    const message = false && 'HELLO';
+    console.log(message);
+
+    let currency = 'INR' || 'USD';
+    console.log(currency);
+
+    currency = undefined || 'USD';
+    console.log(currency);
+
   </script>
 </body>
 </html>
