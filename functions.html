@@ -15,10 +15,12 @@
     // }
     // func();
 
-    function calculateTax(parameter1) {
-      console.log(parameter1 * 0.1);
+    function calculateTax(cost, taxPercent = 0.1) { //Adding default tax value
+      console.log(taxPercent);
+      console.log(cost * taxPercent);
     }
-    calculateTax(2000);
+    calculateTax(2000, 0.2);
+    calculateTax(10000);
   </script>
 </body>
 </html>
