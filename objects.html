@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objects</title>
+</head>
+<body>
+  <p>Objects</p>
+
+  <script>
+    /* let product = {
+      name: 'socks',
+      price: 599
+    };
+    console.log(product);
+    console.log(product.name);
+    console.log(product.price);
+
+    product.name = 'sweater';
+    console.log(product);
+
+    product.newProperty = true;
+    console.log(product);
+
+    delete product.newProperty;
+    console.log(product); */
+
+    const product2 = {   //Object
+      name: 'shirt',
+      price: 599,
+      'delivery-time': '1 day',
+      rating: {   //Nested Object
+        stars: 4.5,
+        count: 87
+      },
+      fun: function function1() {
+        console.log('Function inside object');
+      }
+
+    };
+    console.log(product2);
+    console.log(product2.name); //Dot notation
+    console.log(product2['name']);  //Brackets notation
+    console.log(product2['price']);
+    console.log(product2['delivery-time']);
+
+    console.log(product2.rating.count);
+    product2.fun(); //Function calling using object
+
+    console.log(typeof console.log);
+
+    console.log(JSON.stringify(product2));
+    
+    const jsonstring = JSON.stringify(product2);
+    console.log(JSON.parse(jsonstring));
+  </script>
+</body>
+</html>
