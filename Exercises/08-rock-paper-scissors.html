@@ -20,21 +20,31 @@
   </button>
   <button onclick="
     playGame('Scissors');
-">
+  ">
     Scissors
   </button>
 
   <button onclick="
-    score.wins = 0;
-    score.losses = 0;
-    score.ties = 0;
+    localStorage.removeItem('score');
   ">
     Reset Score
   </button>
 
   <script>
 
-    const score = JSON.parse(localStorage.getItem('score'));
+    let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0,
+        ties: 0
+      };
+
+    /* if (!score) {
+      score = {
+        wins: 0,
+        losses: 0,
+        ties: 0
+      };
+    } */
 
     function playGame(playerMove) {
       const compMove = pickCompMove();

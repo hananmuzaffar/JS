@@ -26,7 +26,7 @@
     delete product.newProperty;
     console.log(product); */
 
-    const product2 = {   //Object
+    /* const product2 = {   //Object
       name: 'shirt',
       price: 599,
       'delivery-time': '1 day',
@@ -54,6 +54,36 @@
     
     const jsonstring = JSON.stringify(product2);
     console.log(JSON.parse(jsonstring));
+    */
+
+    console.log('hello'.length);
+    console.log('hello'.toUpperCase());
+
+    const object1 = {
+      message: 'hello',
+    };
+
+    const object2 = object1; //Referencing objects
+
+    object1.message = 'Good job!';
+    console.log(object1);
+    console.log(object2);
+
+    const object3 = {
+      message: 'Good job!'
+    };
+
+    console.log(object3 === object1);  //Comparing objects (gives false)
+
+    console.log(object2 === object1); //Gives true because of same references
+
+    const object4 = {
+    message: 'Good job!'
+    };
+
+    //const message = object4.message;
+    const { message } = object4; //Dereferencing objects
+    console.log(message);
   </script>
 </body>
 </html>
