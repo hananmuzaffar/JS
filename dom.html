@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document Object Model</title>
+</head>
+<body>
+  <p>Document Object Model</p>
+
+  <button>
+    hello
+  </button>
+
+  <button class="second-btn">
+    Second button
+  </button>
+
+  <script>
+
+    console.log(document.querySelector('button').innerHTML);
+    document.querySelector('button').innerHTML = 'Changed';
+
+    const btnElement = document.querySelector('.second-btn');
+    console.log(btnElement);
+
+    /*
+    console.log(document.title);
+    document.title = 'Changed';
+
+    console.log(document.body);
+    console.log(typeof document.body);
+
+  document.body.innerHTML = '<button>Good job</button>';
+  */
+
+
+    /*
+    document.body.innerHTML = 'hello world';
+    document.title = 'Hanan';
+    */
+  </script>
+</body>
+</html>
