@@ -7,7 +7,57 @@
 </head>
 <body>
   <p>09 - Exercises</p>
+
+  <button>9a</button>
+
+  <button class="ex9-button">9b</button>
+
+  <p>
+    <button onclick="
+      document.querySelector('.move').innerHTML = `You chose: heads`;
+    ">heads</button>
+
+  <button onclick="
+    document.querySelector('.move').innerHTML = `You chose: tails`;
+  ">tails</button>
+  <p class="move"></p>
+  </p>
+
+  <p>
+    <input type="text" class="name-input" onkeydown="
+      handleInputElement(event)
+    ">
+
+    <button onclick="
+      nameSubmit();
+    ">Submit</button>
+    <p class="name"></p>
+  </p>
+
+  <p>
+    <input type="text" class="js-input" onkeyup="
+      const inputElement = document.querySelector('.js-input');
+      document.querySelector('.js-msg').innerHTML = inputElement.value;
+    ">
+    <h1 class="js-msg"></h1>
+  </p>
+  
+
   <script>
+    console.log(document.querySelector('button'));
+
+    document.querySelector('.ex9-button').innerHTML = '9b done!';
+
+    function nameSubmit() {
+      const inputElement = document.querySelector('.name-input');
+      document.querySelector('.name').innerHTML = `Your name is: ${inputElement.value}`;
+    }
+
+    function handleInputElement(event) {
+      if (event.key === 'Enter') {
+        nameSubmit();
+      }
+    }
   </script>
 </body>
 </html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9g Exercise</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    .box {
+      margin: 0 0 40px 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Amazon Shipping Calculator -->
+  <div class="box">
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 - +$10shipping</p>
+    <p>Orders above $40 - FREE shipping</p>
+    <input type="text" placeholder="Cost of order" class="js-cost-input" onkeydown="
+      handleCostKeydown(event);
+    ">
+    <button onclick="
+      calculateTotal();
+    ">
+      Calculate
+    </button>
+    <p class="js-total-cost"></p>
+  </div>
+  <script>
+
+    function calculateTotal() {
+      const inputElement = document.querySelector('.js-cost-input');
+      let cost = Number(inputElement.value) * 100; // Number converts to Number
+
+      if (cost < 4000) {
+        cost += 1000;
+      }
+
+      document.querySelector('.js-total-cost')
+        .innerHTML = ` Total: $${cost/100}`;
+    }
+
+    function handleCostKeydown(event) {
+      if (event.key === 'Enter') {
+      calculateTotal();
+      }
+    }
+  </script>
+</body>
+</html>
