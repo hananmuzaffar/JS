@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10h - Exercise</title>
+</head>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .box {
+    margin: 0 0 30px 10px;
+  }
+
+  .js-cost-input {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .calculate-btn {
+    padding: 12px 15px;
+    background-color: green;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+
+  }
+  .error-msg {
+    color: red;
+  }
+</style>
+<body>
+  <p>10h- Exercise</p>
+
+
+  <!-- Amazon Shipping Calculator -->
+  <div class="box">
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under &#8377;499 - +&#8377;40 shipping</p>
+    <p>Orders above &#8377;499 - FREE shipping</p>
+    <input type="text" placeholder="Cost of order" class="js-cost-input" onkeydown="
+      handleCostKeydown(event);
+    ">
+    <button class="calculate-btn" onclick="
+      calculateTotal();
+    ">
+      Calculate
+    </button>
+    <p class="js-total-cost"></p>
+    <p class="error-msg"></p>
+  </div>
+  <script>
+
+    function calculateTotal() {
+      const inputElement = document.querySelector('.js-cost-input');
+      let cost = Number (inputElement.value); // Number converts to Number
+
+      document.querySelector('.js-total-cost').innerHTML = '';
+      document.querySelector('.error-msg').innerHTML = '';
+
+      if (cost < 0) {
+        document.querySelector('.error-msg').innerHTML = 'Error: Cost cannot be less than &#8377;0';
+        return;
+      }
+
+      if (cost < 499) {
+        cost += 40;
+      }
+
+      document.querySelector('.js-total-cost')
+        .innerHTML = ` Total: &#8377; ${cost}`;
+    }
+
+    function handleCostKeydown(event) {
+      if (event.key === 'Enter') {
+      calculateTotal();
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 - Calculator</title>
+  <style>
+    body {
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      background-color: #000;
+    }
+    .display {
+      color: white;
+      font-size: 45px;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+    .calculator-btn {
+      width: 60px;
+      height: 60px;
+      font-size: 26px;
+      border-radius: 60px;
+      border: none;
+      cursor: pointer;
+      margin-right: 3px;
+    }
+    .grey-btn {
+      background-color: rgb(51, 51, 51);
+      color: white;
+    }
+    .orange-btn {
+      background-color: rgb(254, 160, 10);
+      color: white;
+    }
+    .clear-btn {
+      font-size: 17px;
+    }
+  </style>
+</head>
+<body>
+  <p class="display"></p>
+
+
+  <p>
+    <button class="calculator-btn grey-btn" onclick="
+      updateCalculation('1');
+    ">1</button>
+    <button class="calculator-btn grey-btn" onclick="
+      updateCalculation('2');
+    ">2</button>
+    <button class="calculator-btn grey-btn" onclick="
+      updateCalculation('3');
+    ">3</button>
+    <button class="calculator-btn orange-btn" onclick="
+      updateCalculation(' + ');
+    ">+</button>
+  </p>
+
+  <p>
+    <button class="calculator-btn grey-btn" onclick="
+      updateCalculation('4');
+    ">4</button>
+
+    <button class="calculator-btn grey-btn" onclick="
+      updateCalculation('5');
+    ">5</button>
+
+    <button class="calculator-btn grey-btn" onclick="
+      updateCalculation('6');
+    ">6</button>
+
+    <button class="calculator-btn orange-btn" onclick="
+      updateCalculation(' - ');
+    ">-</button>
+  </p>
+
+  <p>
+    <button class="calculator-btn grey-btn" onclick="
+      updateCalculation('7');
+    ">7</button>
+
+    <button class="calculator-btn grey-btn" onclick="
+      updateCalculation('8');
+    ">8</button>
+    <button class="calculator-btn grey-btn" onclick="
+      updateCalculation('9');
+    ">9</button>
+    <button class="calculator-btn orange-btn" onclick="
+      updateCalculation(' * ');
+    ">*</button>
+  </p>
+
+  <p>
+    <button class="calculator-btn grey-btn" onclick="
+      updateCalculation('0');
+    ">0</button>
+    <button class="calculator-btn grey-btn" onclick="
+      updateCalculation('.');
+    ">.</button>
+    <button class="calculator-btn grey-btn" onclick="
+      updateCalculation(' / ');
+    ">/</button>
+
+    <button class="calculator-btn orange-btn" onclick="
+      calculation = eval(calculation);displayCalculation();
+      localStorage.setItem('calculation', calculation);
+    ">=</button>
+  </p>
+  
+  <p>
+    <button class="calculator-btn grey-btn clear-btn" onclick="
+      calculation = '';
+      displayCalculation();
+      localStorage.setItem('calculation', calculation);
+    ">Clear</button>
+  </p>
+
+  <script>
+    let calculation = localStorage.getItem('calculation') || '';
+
+    displayCalculation();
+
+    function updateCalculation(value) {
+      calculation += value;
+      displayCalculation();
+      localStorage.setItem('calculation', calculation);
+    }
+
+    function displayCalculation() {
+      document.querySelector('.display').innerHTML = calculation;
+    }
+  </script>
+</body>
+</html>
