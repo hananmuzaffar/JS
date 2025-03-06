@@ -4,13 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo List</title>
+  <link rel="stylesheet" href="assets/styles/11-todo.css">
 </head>
 <body>
   <p>Todo List</p>
-  <input type="text" placeholder="Task" class="task-name">
-  <button onclick="
-    addTodo();
-  ">Add</button>
+  <div class="todo-input-grid">
+    <input type="text" placeholder="Task" class="task-name">
+    <input type="date" class="due-date">
+    <button class="add-btn" onclick="
+      addTodo();
+    ">Add</button>
+  </div>
+
   <div class="task-list"></div>
 
   <script src="assets/js/11-todo.js"></script>
