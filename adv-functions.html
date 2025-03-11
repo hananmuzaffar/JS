@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Functions</title> 
+</head>
+<body>
+  <p>Advanced Functions</p>
+
+  <script>
+
+    /*
+    function1 = function() { //Anonymous function
+      console.log('hello');
+    };
+    function1();
+    console.log(function1);
+
+    const object1 = {
+      num: 2,
+      fun: function() {
+        console.log('hello from object1');
+      }
+    }
+    object1.fun();
+
+    function dispay(param) {
+      console.log(param);
+    }
+    dispay(4);
+
+    function run(param) {
+      param();
+    }
+    run(function() { //Callback function
+      console.log('hello from function');
+    });
+    */
+
+    /*
+    setTimeout(function() {
+      console.log('timeout');
+    }, 3000);
+
+    console.log('next line');
+
+    setInterval(function() {
+      console.log('interval');
+    }, 3000);
+
+    console.log('next line after interval');
+    */
+
+    [
+      'make dinner',
+      'wash dishes',
+      'watch youtube'
+    ].forEach(function(value, index) {
+      if (value === 'wash dishes') {
+        return;
+      }
+      console.log(value);
+      console.log(index);
+    });
+  </script>
+</body>
+</html>

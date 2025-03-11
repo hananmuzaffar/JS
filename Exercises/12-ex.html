@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11 - Exercises</title>
+  <style>
+    div {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <p>11- Exercises</p>
+
+  <div>
+    <button class="btn1" onclick="
+    updateBtn();
+    ">
+      Start
+    </button>
+  </div>
+  
+
+  <div>
+    <button class="cart" onclick="
+    cart();
+    ">
+      Add to cart
+    </button>
+    <p class="message"></p>
+  </div>
+
+  <div>
+    <button class="add" onclick="
+      addMsg();
+    ">
+      Add
+    </button>
+    <button class="remove" onclick="
+      removeMsg();
+    ">
+      Remove  
+    </button>
+  </div>
+
+
+  <script>
+    const add = function() {
+      console.log(2+3);
+    };
+    add();
+    add();
+
+    function runTwice(fun) {
+      fun();
+      fun();
+    }
+
+    runTwice(function() {
+      console.log('Hello');
+    });
+
+    runTwice(add);
+
+    function updateBtn() {
+      const btnElement = document.querySelector('.btn1');
+      setTimeout(function() {
+        btnElement.innerHTML = 'Finished';
+      }, 1000);
+      btnElement.innerHTML = 'Loading...';
+    }
+
+    let timeoutId;
+    function cart() {
+      const msgElement = document.querySelector('.message');
+      msgElement.innerHTML = 'Added';
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(function() {
+        msgElement.innerHTML = '';
+      }, 2000);
+    }
+
+    let messages = 2;
+    function addMsg() {
+      messages += 1;
+    }
+    function removeMsg() {
+      messages -= 1;
+    }
+    setInterval(function() {
+      if (document.title === "11 - Exercises") {
+        if (messages > 0) {
+          document.title = `(${messages}) new Messages`;
+        }
+        else {
+          document.title = '11 - Exercises';
+        }
+        
+      }
+      else {
+        document.title = '11 - Exercises';
+      }
+    }, 1000);
+
+
+  </script>
+</body>
+</html>
