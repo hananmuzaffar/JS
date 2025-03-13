@@ -55,21 +55,15 @@
 <body>
   <p class="title">Rock Paper Scissors</p>
 
-  <button class="move-btn" onclick="
-    playGame('rock');
-  ">
+  <button class="move-btn js-rock-btn">
     <img src="assets/images/rock-emoji.png" alt="" class="move-icon">
   </button>
 
-  <button class="move-btn" onclick="
-    playGame('paper');
-  ">
+  <button class="move-btn js-paper-btn">
     <img src="assets/images/paper-emoji.png" alt="" class="move-icon">
   </button>
 
-  <button class="move-btn" onclick="
-    playGame('scissors');
-  ">
+  <button class="move-btn js-scissors-btn">
     <img src="assets/images/scissors-emoji.png" alt="" class="move-icon">
   </button>
 
@@ -77,19 +71,11 @@
   <p class="js-moves"></p>
   <p class="js-score"></p>
 
-  <button class="reset-btn" onclick=" 
-    score.wins= 0;
-    score.losses= 0;
-    score.ties= 0;
-    localStorage.removeItem('score');
-    updateScoreElement();
-  ">
+  <button class="reset-btn">
     Reset Score
   </button>
 
-  <button class="auto-play-btn" onclick="
-    autoPlay();
-  ">
+  <button class="auto-play-btn">
     Auto Play
   </button>
 
@@ -116,9 +102,11 @@
 
       let isAutoPlaying = false;
       let intervalId ;
+
+      // const autoPlay = () => {
       function autoPlay() {
         if (!isAutoPlaying) {
-          intervalId = setInterval(function() {
+          intervalId = setInterval(() => {
             const playerMove = pickCompMove();
             playGame(playerMove);
           }, 1000);
@@ -129,6 +117,48 @@
           isAutoPlaying = false;
         }
       }
+
+
+      document.querySelector('.js-rock-btn')
+      .addEventListener('click', () => {
+        playGame('rock');
+      })
+
+      document.querySelector('.js-paper-btn')
+      .addEventListener('click', () => {
+        playGame('paper');
+      })
+
+      document.querySelector('.js-scissors-btn')
+      .addEventListener('click', () => {
+        playGame('scissors');
+      })
+
+      document.querySelector('.reset-btn')
+      .addEventListener('click', () => {
+        score.wins= 0;
+        score.losses= 0;
+        score.ties= 0;
+        localStorage.removeItem('score');
+        updateScoreElement();
+      });
+
+      document.querySelector('.auto-play-btn')
+      .addEventListener('click', () => {
+        autoPlay();
+      });
+
+      document.body.addEventListener('keydown', (event) => {
+        if (event.key === 'r') {
+          playGame('rock');
+        }
+        else if (event.key === 'p') {
+          playGame('paper');
+        }
+        else if (event.key === 's') {
+          playGame('scissors');
+        }
+      });
 
     function playGame(playerMove) {
       const compMove = pickCompMove();
