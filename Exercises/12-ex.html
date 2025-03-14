@@ -11,35 +11,27 @@
   </style>
 </head>
 <body>
-  <p>11- Exercises</p>
+  <p>12- Exercises</p>
 
   <div>
-    <button class="btn1" onclick="
-    updateBtn();
-    ">
+    <button class="btn1">
       Start
     </button>
   </div>
   
 
   <div>
-    <button class="cart" onclick="
-    cart();
-    ">
+    <button class="cart">
       Add to cart
     </button>
     <p class="message"></p>
   </div>
 
   <div>
-    <button class="add" onclick="
-      addMsg();
-    ">
+    <button class="add-item">
       Add
     </button>
-    <button class="remove" onclick="
-      removeMsg();
-    ">
+    <button class="remove-item">
       Remove  
     </button>
   </div>
@@ -63,32 +55,39 @@
 
     runTwice(add);
 
-    function updateBtn() {
+    document.querySelector('.btn1')
+      .addEventListener('click', () => {
       const btnElement = document.querySelector('.btn1');
-      setTimeout(function() {
+      setTimeout(() => {
         btnElement.innerHTML = 'Finished';
       }, 1000);
       btnElement.innerHTML = 'Loading...';
-    }
+    });
 
     let timeoutId;
-    function cart() {
+    document.querySelector('.cart')
+      .addEventListener('click', () => {
       const msgElement = document.querySelector('.message');
       msgElement.innerHTML = 'Added';
       clearTimeout(timeoutId);
-      timeoutId = setTimeout(function() {
+      timeoutId = setTimeout(() => {
         msgElement.innerHTML = '';
       }, 2000);
-    }
+    });
 
     let messages = 2;
-    function addMsg() {
+
+    document.querySelector('.add-item')
+      .addEventListener('click' , () => {
       messages += 1;
-    }
-    function removeMsg() {
+    });
+
+    document.querySelector('.remove-item')
+      .addEventListener('click', () => {
       messages -= 1;
-    }
-    setInterval(function() {
+    });
+
+    setInterval(() => {
       if (document.title === "12 - Exercises") {
         if (messages > 0) {
           document.title = `(${messages}) new Messages`;
